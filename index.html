@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R0YCHAT</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="auth-container">
+        <div class="auth-box">
+            <h1 class="glitch" data-text="R0YCHAT">R0YCHAT</h1>
+            <div class="tabs">
+                <button id="tab-login" class="active">Login</button>
+                <button id="tab-register">Register</button>
+            </div>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="Username" required autocomplete="off">
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit" id="auth-btn">ENTER SYSTEM</button>
+            </form>
+            <p id="auth-error"></p>
+        </div>
+    </div>
+
+    <div id="app-container" class="hidden">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <img id="my-avatar" src="" alt="Avatar">
+                <div class="profile-info">
+                    <h3 id="my-username">User</h3>
+                    <span class="status online">Online</span>
+                </div>
+                <button id="logout-btn">Logout</button>
+            </div>
+
+            <div class="search-section">
+                <input type="text" id="user-search" placeholder="Add Friend (Username)...">
+                <div id="search-results" class="dropdown hidden"></div>
+            </div>
+
+            <div class="sidebar-tabs">
+                <button id="btn-friends" class="active">Friends</button>
+                <button id="btn-requests">Requests <span id="req-badge" class="hidden">0</span></button>
+            </div>
+
+            <ul id="friends-list" class="list-view">
+                </ul>
+            <ul id="requests-list" class="list-view hidden">
+                </ul>
+        </aside>
+
+        <main class="chat-area">
+            <div id="no-chat-selected">
+                <h2>SELECT A TERMINAL</h2>
+                <p>Choose a friend to begin encrypted transmission.</p>
+            </div>
+
+            <div id="active-chat" class="hidden">
+                <header class="chat-header">
+                    <div class="chat-user-info">
+                        <img id="chat-avatar" src="" alt="">
+                        <h3 id="chat-username">Username</h3>
+                        <span id="chat-status" class="status-dot"></span>
+                    </div>
+                </header>
+                
+                <div id="messages-container">
+                    </div>
+                <div id="typing-indicator" class="hidden">User is typing...</div>
+
+                <form id="message-form">
+                    <input type="text" id="msg-input" placeholder="Type a message..." autocomplete="off">
+                    <button type="submit">SEND</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
